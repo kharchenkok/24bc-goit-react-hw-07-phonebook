@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "name": "Kat",
-      "number": "123456789",
-      "id": 1
-    },
-    {
       "name": "Lena",
       "number": "123456789",
       "id": 2
@@ -24,6 +19,11 @@
       "name": "Mom",
       "number": "123456789",
       "id": 5
+    },
+    {
+      "name": "Kat",
+      "number": "123456",
+      "id": 6
     }
   ]
 }
