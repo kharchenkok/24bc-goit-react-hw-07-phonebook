@@ -4,7 +4,7 @@ import errorReducer from "./errorReducer";
 import filterReducer from "./filterReducer";
 import loaderReducer from "./loaderReducer";
 
-const { combineReducers } = require("redux");
+import { combineReducers } from "redux";
 
 const rootReducer=combineReducers({
     contacts:contactsReducer,

@@ -8,7 +8,7 @@ import App from './component/App';
 import './index.css';
 import store from './redux/store';
 
-
+// console.log(store);
 
 ReactDOM.render(
   <Provider store={store}>

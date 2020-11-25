@@ -14,7 +14,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import { Button } from "@material-ui/core";
 
 import style from "./ContactForm.module.css";
-import { postContactsOperation } from "../../redux/operations/contactsOperations";
+import { addContactsOperation } from "../../redux/operations/contactsOperations";
 // =======================================================================
 const ContactForm = () => {
   const formContact = useSelector((state) => state.formContact);
@@ -41,7 +41,7 @@ const ContactForm = () => {
       return;
     }
 
-dispatch(postContactsOperation({name, number}))
+dispatch(addContactsOperation({name, number}))
 
   };
   

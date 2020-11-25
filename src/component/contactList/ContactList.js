@@ -10,8 +10,10 @@ import { deleteContactsOperation } from "../../redux/operations/contactsOperatio
 // ======================================================================
 const ContactList = () => {
   const filter=useSelector(state=>state.filter)
-  const filterContacts=useSelector(state=>state.contacts.filter((elem) => elem.name.toLowerCase().includes(filter)))
+  const filterContacts=useSelector(state=>state.contacts.filter(({name}) => name.toLowerCase().includes(filter)))
   const contacts=useSelector(state=>state.contacts)
+
+  // console.log('filterContacts',filterContacts);
   
 
   const dispatch = useDispatch()
