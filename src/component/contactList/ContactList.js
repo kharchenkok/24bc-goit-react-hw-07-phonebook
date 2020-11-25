@@ -6,33 +6,30 @@ import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import style from "./ContactList.module.css";
 import { deleteContactsOperation } from "../../redux/operations/contactsOperations";
-// import LoaderSpiner from "../loader/Loader";
+import { contactsSelector } from "../../redux/selectors/contactsSelector";
+
 // ======================================================================
 const ContactList = () => {
-  const filter=useSelector(state=>state.filter)
-  const filterContacts=useSelector(state=>state.contacts.filter((elem) => elem.name.toLowerCase().includes(filter)))
-  const contacts=useSelector(state=>state.contacts)
-  
+  const filter = useSelector((state) => state.filter);
+  const filterContacts = useSelector((state) =>
+    state.contacts.filter((elem) => elem.name.toLowerCase().includes(filter))
+  );
+  const contacts = useSelector((state) => contactsSelector(state));
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const deleteUserContact = (id) => {
     dispatch(deleteContactsOperation(id));
-    
   };
 
-
   return (
-
-    
     <TransitionGroup component="ul" className={style.contact__list}>
-      {(contacts.length>1? filterContacts: contacts).map((elem, index) => (
+      {(contacts.length > 1 ? filterContacts : contacts).map((elem, index) => (
         <CSSTransition
           key={elem.id}
           in={filterContacts.length > 0}
           timeout={250}
           classNames={style}
         >
-          
           <li className={style.contact__item}>
             <p className={style.contact__style}>
               {index + 1 + "."}
@@ -46,20 +43,14 @@ const ContactList = () => {
               variant="contained"
               color="secondary"
               startIcon={<DeleteIcon />}
-              >
+            >
               Delete
             </Button>
           </li>
-            
-            
         </CSSTransition>
       ))}
     </TransitionGroup>
-  
-      
-
   );
 };
 
 export default ContactList;
-
