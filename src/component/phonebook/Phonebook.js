@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch,useSelector} from "react-redux";
 
 import {
   getContactsOperation,
@@ -8,21 +8,24 @@ import ContactForm from "../contactForm/ContactForm";
 import ContactList from "../contactList/ContactList";
 import Filter from "../filter/Filter";
 import Layout from "../layout/Layout";
+import LoaderSpiner from "../loader/Loader";
 
 // ===================================================================
 
 const Phonebook = () => {
+  const loader=useSelector(state=>state.loader)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getContactsOperation());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Layout>
       <ContactForm />
       <Filter />
-      <ContactList />
+  {loader?<LoaderSpiner/>: <ContactList /> }
+    
     </Layout>
   );
 };

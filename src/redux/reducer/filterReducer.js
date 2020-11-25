@@ -9,14 +9,6 @@ const filterReducer = createReducer(initialState,{
     return target.value.toLowerCase()
   }
 }) 
-// const filterReducer = (state = initialState, { type, payload }) => {
-//   switch (type) {
-//     case GET_FILTER_VALUE:
-//       return payload.value.toLowerCase();
 
-//     default:
-//       return state;
-//   }
-// };
 
 export default filterReducer;

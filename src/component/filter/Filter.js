@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFilterValue } from "../../redux/action/filterActions";
 import { TextField } from "@material-ui/core";
 import style from "./Filter.module.css";
+import { contactsSelector } from "../../redux/selectors/contactsSelector";
 // =======================================================
 
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
-  const contacts = useSelector((state) => state.contacts)
+  const contacts = useSelector((state) => contactsSelector(state));
   const userFilter = (e) => {
     dispatch(getFilterValue(e));
   };
